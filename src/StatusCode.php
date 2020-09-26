@@ -246,54 +246,54 @@ final class StatusCode
     /**
      * Get the name for a given status code.
      *
-     * @param int $code http status code
+     * @param int $statusCode http status code
      *
-     * @throws \InvalidArgumentException If the requested $code is not valid
-     * @throws \OutOfBoundsException     If the requested $code is not found
+     * @throws \InvalidArgumentException If the requested $statusCode is not valid
+     * @throws \OutOfBoundsException     If the requested $statusCode is not found
      *
      * @return string Returns name for the given status code
      */
-    public static function getStatusName(int $code): string
+    public static function getStatusName(int $statusCode): string
     {
-        static::assertValidStatusCode($code);
-        if (! isset(self::$statusNames[$code])) {
-            throw new \OutOfBoundsException(\sprintf('Unknown http status code: `%s`.', $code));
+        static::assertValidStatusCode($statusCode);
+        if (! isset(self::$statusNames[$statusCode])) {
+            throw new \OutOfBoundsException(\sprintf('Unknown http status code: `%s`.', $statusCode));
         }
 
-        return self::$statusNames[$code];
+        return self::$statusNames[$statusCode];
     }
 
     /**
      * Get the reason phrase for a given status code.
      *
-     * @param int $code http status code
+     * @param int $statusCode http status code
      *
-     * @throws \InvalidArgumentException If the requested $code is not valid
-     * @throws \OutOfBoundsException     If the requested $code is not found
+     * @throws \InvalidArgumentException If the requested $statusCode is not valid
+     * @throws \OutOfBoundsException     If the requested $statusCode is not found
      *
      * @return string Returns message for the given status code
      */
-    public static function getReasonPhrase(int $code): string
+    public static function getReasonPhrase(int $statusCode): string
     {
-        static::assertValidStatusCode($code);
-        if (! isset(self::$reasonPhrases[$code])) {
-            throw new \OutOfBoundsException(\sprintf('Unknown http status code: `%s`.', $code));
+        static::assertValidStatusCode($statusCode);
+        if (! isset(self::$reasonPhrases[$statusCode])) {
+            throw new \OutOfBoundsException(\sprintf('Unknown http status code: `%s`.', $statusCode));
         }
 
-        return self::$reasonPhrases[$code];
+        return self::$reasonPhrases[$statusCode];
     }
 
     /**
      * Assert a HTTP Status code is in the correct range.
      *
-     * @param int $code
+     * @param int $statusCode
      *
      * @throws \InvalidArgumentException if the HTTP status code is invalid
      */
-    public static function assertValidStatusCode(int $code): void
+    public static function assertValidStatusCode(int $statusCode): void
     {
-        if ($code < self::MINIMUM_VALUE || $code > self::MAXIMUM_VALUE) {
-            throw new \InvalidArgumentException("Invalid status code '$code'; must be an integer between 100 and 599, inclusive.");
+        if ($statusCode < self::MINIMUM_VALUE || $statusCode > self::MAXIMUM_VALUE) {
+            throw new \InvalidArgumentException("Invalid status code '$statusCode'; must be an integer between 100 and 599, inclusive.");
         }
     }
 
