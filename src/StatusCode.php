@@ -417,7 +417,7 @@ final class StatusCode
      */
     public static function isRedirect(int $statusCode): bool
     {
-        return in_array($statusCode, [301, 302, 303, 307, 308]));
+        return in_array($statusCode, [301, 302, 303, 307, 308]);
     }
 
     /**
