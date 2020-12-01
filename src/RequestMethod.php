@@ -114,6 +114,11 @@ final class RequestMethod
      */
     public const TRACE = 'TRACE';
 
+    /**
+     * Helper constant to use all the defined methods.
+     *
+     * @link https://tools.ietf.org/html/rfc7231#section-4.3.8
+     */
     public const ANY = [
         self::GET,
         self::POST,
@@ -167,15 +172,30 @@ final class RequestMethod
     }
 
     /**
-     * Standardize custom http method name
-     * For the methods that are not defined in this enum
+     * Check if the given http method is not a "safe" method.
+     *
+     * @see https://tools.ietf.org/html/rfc7231.html#section-4.2.1
      *
      * @param string $method
-     * @return string
+     *
+     * @return bool
      */
-    // TODO : réfléchir si on conserve cette méthode !!!!
-    public static function custom(string $method): string
+    public static function isUnsafe(string $method): bool
     {
-        return strtoupper($method);
+        return self::isSafe($method) === false;
+    }
+
+    /**
+     * Check if the given http method is "safe" as defined in RFC7231.
+     *
+     * @see https://tools.ietf.org/html/rfc7231.html#section-4.2.1
+     *
+     * @param string $method
+     *
+     * @return bool
+     */
+    public static function isSafe(string $method): bool
+    {
+        return in_array(strtoupper($method), [self::GET, self::HEAD, self::OPTIONS, self::TRACE]);
     }
 }
