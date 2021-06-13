@@ -180,6 +180,7 @@ final class RequestMethod
      *
      * @return bool
      */
+    // TODO : Permettre de passer en paramétre soit une string soit un ServerRequestInterface pour récupérer la méthode via un appel ->getMethod() et ensuite faire la vérification.
     public static function isUnsafe(string $method): bool
     {
         return self::isSafe($method) === false;
@@ -194,6 +195,7 @@ final class RequestMethod
      *
      * @return bool
      */
+    // TODO : Permettre de passer en paramétre soit une string soit un ServerRequestInterface pour récupérer la méthode via un appel ->getMethod() et ensuite faire la vérification.
     public static function isSafe(string $method): bool
     {
         return in_array(strtoupper($method), [self::GET, self::HEAD, self::OPTIONS, self::TRACE]);
