@@ -128,7 +128,7 @@ final class RequestMethod
         self::HEAD,
         self::OPTIONS,
         self::CONNECT,
-        self::TRACE
+        self::TRACE,
     ];
 
     /**
@@ -148,21 +148,23 @@ final class RequestMethod
     //https://github.com/slimphp/Slim-Psr7/blob/master/src/Request.php#L155
     public static function validateHttpMethods(array $methods): array
     {
-        if (false === array_reduce($methods, function ($valid, $method) {
-            if ($valid === false) {
-                return false;
-            }
-            if (! is_string($method)) {
-                return false;
-            }
+        if (
+            array_reduce($methods, function ($valid, $method) {
+                if ($valid === false) {
+                    return false;
+                }
+                if (! is_string($method)) {
+                    return false;
+                }
             //if (! preg_match('/^[!#$%&\'*+.^_`\|~0-9a-z-]+$/i', $method)) {
-            if (preg_match("/^[!#$%&'*+.^_`|~0-9a-z-]+$/i", $method) !== 1) {
-            //if (! preg_match("/^[!#$%&'*+.^_`|~0-9a-z-]+$/i", $method)) {
-                return false;
-            }
+                if (preg_match("/^[!#$%&'*+.^_`|~0-9a-z-]+$/i", $method) !== 1) {
+                //if (! preg_match("/^[!#$%&'*+.^_`|~0-9a-z-]+$/i", $method)) {
+                    return false;
+                }
 
-            return $valid;
-        }, true)) {
+                return $valid;
+            }, true) === false
+        ) {
             throw new \InvalidArgumentException('One or more HTTP methods were invalid');
         }
 

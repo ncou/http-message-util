@@ -257,7 +257,7 @@ final class StatusCode
     {
         static::assertValidStatusCode($statusCode);
         if (! isset(self::$statusNames[$statusCode])) {
-            throw new \OutOfBoundsException(\sprintf('Unknown http status code: `%s`.', $statusCode));
+            throw new \OutOfBoundsException(sprintf('Unknown http status code: `%s`.', $statusCode));
         }
 
         return self::$statusNames[$statusCode];
@@ -277,7 +277,7 @@ final class StatusCode
     {
         static::assertValidStatusCode($statusCode);
         if (! isset(self::$reasonPhrases[$statusCode])) {
-            throw new \OutOfBoundsException(\sprintf('Unknown http status code: `%s`.', $statusCode));
+            throw new \OutOfBoundsException(sprintf('Unknown http status code: `%s`.', $statusCode));
         }
 
         return self::$reasonPhrases[$statusCode];
@@ -296,7 +296,6 @@ final class StatusCode
             throw new \InvalidArgumentException("Invalid status code '$statusCode'; must be an integer between 100 and 599, inclusive.");
         }
     }
-
 
     // TODO : code à améliorer !!!!
 
