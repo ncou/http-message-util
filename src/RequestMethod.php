@@ -9,6 +9,9 @@ namespace Chiron\Http\Message;
 // TODO : enrichir la méthode ->any()    https://github.com/narrowspark/framework/blob/2866c328dfeec4cc78f8c25f412832bb2e9da5e2/src/Viserio/Component/Routing/Router.php#L191
 // TODO : classe à déplacer dans un projet http-method et ajouter cette dépendance composer dans le projet router.
 
+// TODO : renommer la classe en HttpMethod ????
+// TODO : ajouter tous les type de request : https://github.com/azjezz/hack-routing/blob/main/src/HttpMethod.php
+
 /**
  * HTTP request methods
  *
