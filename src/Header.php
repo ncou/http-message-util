@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Chiron\Http\Message;
 
 // TODO : renommer en HeaderName ???
+//https://github.com/go-aah/aah/blob/f42ff581c627a997425818a51a96d12078f1e539/ahttp/header.go#L22
 
 /**
  * HTTP headers
