@@ -235,9 +235,7 @@ final class StatusCode
     ];
 
     /**
-     * Private constructor; non-instantiable use only the static methods !
-     *
-     * @codeCoverageIgnore
+     * Private constructor; non-instantiable class use only the static methods!
      */
     private function __construct()
     {

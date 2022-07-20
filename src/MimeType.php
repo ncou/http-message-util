@@ -4,6 +4,9 @@ declare(strict_types=1);
 
 namespace Chiron\Http\Message;
 
+//https://github.com/cakephp/cakephp/blob/98c137127c3e4b0f5f471e4c69d72708241eedd3/src/Http/Response.php#L134
+//https://github.com/symfony/mime/blob/5.4/MimeTypes.php#L153
+
 /**
  * This class come from the guzzle/psr7 package.
  */
